@@ -22,6 +22,7 @@ class Country extends Model
         // tabla pivote o debil
         //fk del modelo pivote
         // fk de la tabla a relacionar con el pivote
-        return $this->belongsToMany(Language::class, "country_languages", "country_id", "language_id");
+        return $this->belongsToMany(Language::class, "country_languages", "country_id", "language_id")
+        ->withPivot('official');
     }
 }

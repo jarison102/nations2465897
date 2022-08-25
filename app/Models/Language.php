@@ -11,4 +11,16 @@ class Language extends Model
     protected $primaryKey = "language_id";
 
     use HasFactory;
+
+
+    //relacion muchos a muchos con paises
+    public function paises(){
+
+    
+    return $this->belongsToMany(Country::class,
+                                'country_languages',
+                                'languague_id',
+                                'Country_id' )
+                                ->withPivot('official');
+    }
 }
